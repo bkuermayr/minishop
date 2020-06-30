@@ -1,9 +1,10 @@
 # minishop
+<p float="left">
 <img src="https://raw.githubusercontent.com/bkuermayr/minishop/master/screenshots/shop.PNG" alt="online shop screenshot" width="300"/>
 <img src="https://raw.githubusercontent.com/bkuermayr/minishop/master/screenshots/cart.png" alt="online shop screenshot" width="300"/>
 <img src="https://raw.githubusercontent.com/bkuermayr/minishop/master/screenshots/checkout.png" alt="online shop screenshot" width="300"/>
 <img src="https://raw.githubusercontent.com/bkuermayr/minishop/master/screenshots/product.png" alt="online shop screenshot" width="300"/>
-
+</p>
 A php template for online shop and ecommerce webpages
 can be used as starter code / template for online shop projects
 
