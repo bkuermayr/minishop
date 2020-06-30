@@ -1,0 +1,362 @@
+@charset 'utf-8';
+/**
+ * author: Benjamin Kuermayr
+ * version: 2020-03-04
+ * subject: Umsetzung eines Webshops mit PHP
+ */
+
+body, html {
+    font-family: 'Montserrat',sans-serif;
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+/********************************************************
+NAVIGATION
+*********************************************************/
+nav {
+    padding: 1em !important;
+    top: 0;
+    
+    &.top {
+        z-index: 1000;
+    }
+
+    ul {
+
+        li {
+            display: flex;
+            transition: all .5;
+            padding: 0 1rem;
+    
+            a {
+                text-align: center;
+                width: 100%;
+
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    a {
+        text-decoration: none !important;
+        color: #212529;
+
+        &:focus, &:hover {
+            color: #212529;
+        }
+    }
+
+}
+
+span.text-wrap.icon {
+    padding-left: 5px;
+}
+
+.slider-content {
+    position: relative;
+    z-index: 10;
+}
+
+#banner {
+    position: relative;
+    display: block;
+    background-size: cover;
+    background-image: url(../img/banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 30% !important;
+    width: 100%;
+
+    h1 {
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: #4e4e4e38;
+    }
+}
+
+input[type=checkbox], input[type=radio] {
+    width: 10px;
+    margin-right: 5px;
+    height: auto;
+}
+
+label[for="newsletter"] {
+    display: flex;
+}
+
+#page-content {
+    min-height: 90vh !important;
+}
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+  }
+
+  .bg-primary-dark {
+    background:rgba(0, 123, 255, 0.74);
+  }
+
+  footer ul, footer p {
+      margin: 0 !important;
+  }
+
+  form {
+    max-width: 500px;
+    width: 100%;
+
+    &.loginForm, &.registrationForm, &.createArticleForm {
+        margin: 0 auto;
+    }
+
+    label {
+        width: 100%;
+
+        input {      
+            width: 100%;
+        }
+
+        textarea {
+            resize: none;
+        }
+    }
+
+  }
+
+
+.page-id-article #banner {
+    display: none !important;
+}
+
+.article > div {
+    overflow: hidden;
+    border-radius: .8rem !important;
+}
+
+.price {
+    color: var(--primary);
+    font-weight: bold; 
+    font-size: 1.2rem;
+}
+
+.quantity {
+    font-weight: bold;
+    color:  var(--success);
+
+    &.low {
+        color: rgb(190, 55, 55);
+    }
+}
+
+.text-black {
+    color: #212529;
+
+    &:hover {
+        color: #212529;
+
+    }
+}
+
+.align-end {
+    position: absolute;
+    top: 100%;
+}
+
+.carousel .carousel-item {
+    &::after {
+        content: "";
+        display: none !important;
+        position: absolute;
+        top: 0; 
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0000001f;
+    }
+}
+
+
+#carouselExampleIndicators {
+    display: flex !important;
+    flex-flow: row-reverse !important;
+}
+
+ol.carousel-indicators {
+    margin: 0 !important;
+    position: relative;
+    justify-content: start;
+    margin-right: 15px !important;
+    display: flex;
+    flex-flow: column;
+    width: 50px;
+    margin-top: -2px !important;
+
+
+    li {            
+        margin: 0 !important;
+        box-sizing: border-box;
+        text-indent: 0 !important;
+        background-clip: none;
+        border: none !important;
+        margin-bottom: 0.5rem !important;
+        padding: 0 !important;
+        padding-bottom: 100% !important;
+        overflow: hidden !important;
+
+        width: 100%;
+        border: 2px solid transparent !important;
+
+        &.active {
+            border: 2px solid var(--primary) !important;
+        }
+        
+
+        div {
+            margin: 0 !important;
+            box-sizing: border-box;
+            text-indent: 0 !important;
+            background-clip: none;
+            border: none !important;
+            padding-bottom: 100%;
+            overflow: hidden !important;
+
+            width: 100%;
+            height: 100%;
+
+            img {
+                position: absolute;
+                left:-10000%; right: -10000%; 
+                top: -10000%; bottom: -10000%;
+                margin: auto auto;
+                min-width: 1000%;
+                min-height: 1000%;
+                -webkit-transform:scale(0.1);
+                transform: scale(0.1);
+            }
+        }  
+    }
+
+}
+
+a.link {
+    text-decoration: none !important;
+    color: #000000;
+    transition: all .3s;
+     
+    &:hover {
+        color: #000000;
+    }
+}
+
+.badge {
+    padding-left: 0 !important;
+}
+
+
+.page-id-cart .img-wrapper {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    
+    img {
+        position: absolute;
+        left:-10000%; right: -10000%; 
+        top: -10000%; bottom: -10000%;
+        margin: auto auto;
+        min-width: 1000%;
+        min-height: 1000%;
+        -webkit-transform:scale(0.1);
+        transform: scale(0.1);
+    }
+}
+
+.page-id-editarticle .img-wrapper,.page-id-createarticle .img-wrapper {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.rmImg {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: red;
+    font-size: 14pt;
+
+    &:hover {
+        text-decoration: none;
+        color: red;  
+    }
+}
+
+
+img.cover {
+    position: absolute;
+    left:-10000%; right: -10000%; 
+    top: -10000%; bottom: -10000%;
+    margin: auto auto;
+    min-width: 1000%;
+    min-height: 1000%;
+    -webkit-transform:scale(0.1);
+    transform: scale(0.1);
+}
+
+.page-id-checkout, .page-id-payment, .page-id-account {
+    .product-item {
+
+
+        .img-wrapper {
+            width: 60px;
+            height: 60px;
+            overflow: hidden;
+            position: relative;
+            margin-right: 1rem;
+        }
+    }
+}
+
+.page-id-shop {
+    .img-wrapper {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .img-wrapper.cart {
+        width: 50px;
+        height: 50px;
+    }
+   
+    img {
+        position: absolute;
+        left:-10000%; right: -10000%; 
+        top: -10000%; bottom: -10000%;
+        margin: auto auto;
+        min-width: 1000%;
+        min-height: 1000%;
+        -webkit-transform:scale(0.1);
+        transform: scale(0.1);
+    }
+}

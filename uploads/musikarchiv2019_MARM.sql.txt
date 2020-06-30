@@ -1,0 +1,670 @@
+USE musikarchiv2019;
+
+-- ------------------------------------------------
+-- Zweck: Übung Musikarchiv 2019, Musterlösung AU09
+-- Autor: MARM
+-- Datum: 2019-03-19
+
+-- -----
+-- Los 1 (UPDATE interpret, UPDATE album, INSERT song, ...)
+-- -----
+
+-- 179 - ABBA - The Definitive Collection
+-- 158 - John, Elton - Captain Fantastic and the Brown Dirt Cowboy
+-- 433 - Harrison, George - All Things Must Pass
+-- 184 - Madonna - The Immaculate Collection
+-- 132 - Various Artists - Saturday Night Fever (The Original Movie Sound Track)
+
+-- -----
+-- Los 2 (UPDATE interpret, INSERT album, INSERT song, ...)
+-- -----
+
+-- Andersson, Benny
+
+-- -----
+-- Los 3 (INSERT interpret, INSERT album, INSERT song, ...)
+-- -----
+
+-- F Solist weiblich + international
+-- ------------------------------------------------
+
+-- ---
+-- 179 - ABBA - The Definitive Collection
+-- ---
+
+-- Genres ergänzt
+INSERT INTO genre (gbez) VALUES ('Rock');
+INSERT INTO genre (gbez) VALUES ('Electronic');
+INSERT INTO genre (gbez) VALUES ('Funk / Soul');
+INSERT INTO genre (gbez) VALUES ('Pop');
+
+-- Interpret ergänzt
+UPDATE interpret SET wikipedia = 'https://en.wikipedia.org/wiki/ABBA_discography'
+WHERE iname = 'ABBA';
+
+-- Band korrigiert und ergänzt
+UPDATE interpret SET iname = 'Fältskog, Agnetha', inameanz = 'Agnetha Fältskog', wikipedia = 'https://en.wikipedia.org/wiki/Agnetha_F%C3%A4ltskog'
+WHERE iname = 'Faltskog, Agnetha';
+UPDATE interpret SET iname = 'Lyngstad, Anni-Frid', inameanz = 'Anni-Frid Lyngstad', wikipedia = 'https://en.wikipedia.org/wiki/Anni-Frid_Lyngstad'
+WHERE iname = 'Frida';
+UPDATE interpret SET wikipedia = 'https://en.wikipedia.org/wiki/Benny_Andersson'
+WHERE iname = 'Andersson, Benny';
+INSERT INTO interpret (iname, inameanz, wikipedia) VALUES ('Ulvaeus, Björn', 'Björn Ulvaeus', 'https://en.wikipedia.org/wiki/Bj%C3%B6rn_Ulvaeus');
+
+INSERT INTO solist (iname, gebdatum) VALUES ('Fältskog, Agnetha',   '1950-04-05');
+INSERT INTO solist (iname, gebdatum) VALUES ('Lyngstad, Anni-Frid', '1945-11-15');
+INSERT INTO solist (iname, gebdatum) VALUES ('Andersson, Benny',    '1946-12-16');
+INSERT INTO solist (iname, gebdatum) VALUES ('Ulvaeus, Björn',      '1945-04-25');
+
+INSERT INTO band (iname, gruendjahr) VALUES ('ABBA', 1973);
+
+INSERT INTO mitglied (biname, siname, vondatum, bisdatum) VALUES ('ABBA', 'Fältskog, Agnetha',   '1973-10-16', NULL);
+INSERT INTO mitglied (biname, siname, vondatum, bisdatum) VALUES ('ABBA', 'Lyngstad, Anni-Frid', '1973-10-16', NULL);
+INSERT INTO mitglied (biname, siname, vondatum, bisdatum) VALUES ('ABBA', 'Andersson, Benny',    '1973-10-16', NULL);
+INSERT INTO mitglied (biname, siname, vondatum, bisdatum) VALUES ('ABBA', 'Ulvaeus, Björn',      '1973-10-16', NULL);
+
+-- Album und Albumgenres ergänzt
+UPDATE album SET pjahr = 2001, atyp = 'Compilation', discogs = 'https://www.discogs.com/de/ABBA-The-Definitive-Collection/release/555054'
+WHERE  aid = 179;
+
+INSERT INTO albumgenre (gbez, aid) VALUES ('Electronic', 179);
+INSERT INTO albumgenre (gbez, aid) VALUES ('Pop', 179);
+
+-- Songs, Versionen ergänzt
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'People Need Love');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'He Is Your Brother');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Ring Ring');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Love Isn\'t Easy (But It Sure Is Hard Enough)');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Waterloo');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Honey, Honey');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'So Long');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'I Do, I Do, I Do, I Do, I Do');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'SOS');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Mamma Mia');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Fernando');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Dancing Queen');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Money, Money, Money');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Knowing Me, Knowing You');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'The Name Of The Game');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Take A Chance On Me');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Eagle');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Summer Night City');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Chiquitita');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Does Your Mother Know');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Voulez-Vous');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Angeleyes');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Gimme! Gimme! Gimme! (A Man After Midnight)');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'I Have A Dream');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'The Winner Takes It All');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Super Trouper');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'On And On And On');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Lay All Your Love On Me');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'One Of Us');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'When All Is Said And Done');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Head Over Heels');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'The Visitors (Crackin\' Up)');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'The Day Before You Came');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Under Attack');
+INSERT INTO song (iname, stitel) VALUES ('ABBA', 'Thank You For The Music');
+
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'People Need Love', '', '00:02:45', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'He Is Your Brother', '', '00:03:18', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Ring Ring', '', '00:03:04', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Love Isn\'t Easy (But It Sure Is Hard Enough)', '', '00:02:53', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Waterloo', '', '00:02:46', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Honey, Honey', '', '00:02:55', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'So Long', '', '00:03:05', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'I Do, I Do, I Do, I Do, I Do', '', '00:03:17', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'SOS', '', '00:03:20', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Mamma Mia', '', '00:03:32', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Fernando', '', '00:04:13', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Dancing Queen', '', '00:03:51', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Money, Money, Money', '', '00:03:05', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Knowing Me, Knowing You', '', '00:04:01', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'The Name Of The Game', '', '00:04:52', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Take A Chance On Me', '', '00:04:05', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Eagle', '', '00:04:27', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Summer Night City', '', '00:03:36', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Chiquitita', '', '00:05:24', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Does Your Mother Know', '', '00:03:15', 'Funk / Soul');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Voulez-Vous', '', '00:05:09', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Angeleyes', '', '00:04:19', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Gimme! Gimme! Gimme! (A Man After Midnight)', '', '00:04:50', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'I Have A Dream', '', '00:04:42', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'The Winner Takes It All', '', '00:04:56', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Super Trouper', '', '00:04:13', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'On And On And On', '', '00:03:42', 'Electronic');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Lay All Your Love On Me', '', '00:04:34', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'One Of Us', '', '00:03:56', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'When All Is Said And Done', '', '00:03:17', 'Electronic');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Head Over Heels', '', '00:03:47', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'The Visitors (Crackin\' Up)', '', '00:05:46', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'The Day Before You Came', '', '00:05:51', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Under Attack', '', '00:03:47', 'Electronic');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Thank You For The Music', '', '00:03:51', 'Pop');
+
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Ring Ring', '1974 Remix, Single Version', '00:03:10', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('ABBA', 'Voulez-Vous', 'Extended Remix, 1979 US Promo', '00:06:09', 'Rock');
+
+-- Tonträger und Tracklisten ergänzt
+INSERT INTO tontr (aid, medium, seite) VALUES (179, 'CD', '1');
+INSERT INTO tontr (aid, medium, seite) VALUES (179, 'CD', '2');
+
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'People Need Love', '', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'He Is Your Brother', '', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Ring Ring', '', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Love Isn\'t Easy (But It Sure Is Hard Enough)', '', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Waterloo', '', 5, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Honey, Honey', '', 6, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'So Long', '', 7, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'I Do, I Do, I Do, I Do, I Do', '', 8, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'SOS', '', 9, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Mamma Mia', '', 10, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Fernando', '', 11, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Dancing Queen', '', 12, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Money, Money, Money', '', 13, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Knowing Me, Knowing You', '', 14, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'The Name Of The Game', '', 15, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Take A Chance On Me', '', 16, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Eagle', '', 17, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Summer Night City', '', 18, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Chiquitita', '', 19, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '1', 'ABBA', 'Does Your Mother Know', '', 20, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'Voulez-Vous', '', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'Angeleyes', '', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'Gimme! Gimme! Gimme! (A Man After Midnight)', '', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'I Have A Dream', '', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'The Winner Takes It All', '', 5, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'Super Trouper', '', 6, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'On And On And On', '', 7, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'Lay All Your Love On Me', '', 8, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'One Of Us', '', 9, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'When All Is Said And Done', '', 10, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'Head Over Heels', '', 11, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'The Visitors (Crackin\' Up)', '', 12, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'The Day Before You Came', '', 13, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'Under Attack', '', 14, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'Thank You For The Music', '', 15, false);
+
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'Ring Ring', '1974 Remix, Single Version', 16, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (179, 'CD', '2', 'ABBA', 'Voulez-Vous', 'Extended Remix, 1979 US Promo', 17, true);
+
+-- ---
+-- 158 - John, Elton - Captain Fantastic and the Brown Dirt Cowboy
+-- ---
+
+-- Interpret ergänzt
+UPDATE interpret SET wikipedia = 'https://en.wikipedia.org/wiki/Elton_John_discography'
+WHERE iname = 'John, Elton';
+
+-- Album und Albumgenres ergänzt
+UPDATE album SET pjahr = 1975, atyp = 'Studio', discogs = 'https://www.discogs.com/de/Elton-John-Captain-Fantastic-And-The-Brown-Dirt-Cowboy/release/2599554', abem = '30th Anniversary Edition'
+WHERE  aid = 158;
+
+INSERT INTO albumgenre (gbez, aid) VALUES ('Rock', 158);
+
+-- Songs, Versionen ergänzt
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'Captain Fantastic And The Brown Dirt Cowboy');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'Tower Of Babel');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'Bitter Fingers');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'Tell Me When The Whistle Blows');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'Someone Saved My Life Tonight');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', '(Gotta Get A) Meal Ticket');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'Better Off Dead');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'Writing');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'We All Fall In Love Sometimes');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'Curtains');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'Lucy In The Sky With Diamonds');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'One Day At A Time');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'Philadelphia Freedom');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'House Of Cards');
+
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'Pinball Wizard');
+INSERT INTO song (iname, stitel) VALUES ('John, Elton', 'Saturday Night\'s Alright For Fighting');
+
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Captain Fantastic And The Brown Dirt Cowboy', '', '00:05:46', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Tower Of Babel', '', '00:04:28', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Bitter Fingers', '', '00:04:34', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Tell Me When The Whistle Blows', '', '00:04:20', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Someone Saved My Life Tonight', '', '00:06:45', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', '(Gotta Get A) Meal Ticket', '', '00:04:01', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Better Off Dead', '', '00:02:37', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Writing', '', '00:03:40', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'We All Fall In Love Sometimes', '', '00:04:11', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Curtains', '', '00:06:40', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Lucy In The Sky With Diamonds', '', '00:06:18', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'One Day At A Time', '', '00:03:49', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Philadelphia Freedom', '', '00:05:21', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'House Of Cards', '', '00:03:12', 'Rock');
+
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Captain Fantastic And The Brown Dirt Cowboy', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', '00:07:02', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Tower Of Babel', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', '00:04:38', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Bitter Fingers', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', '00:05:06', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Tell Me When The Whistle Blows', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', '00:04:39', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Someone Saved My Life Tonight', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', '00:07:17', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', '(Gotta Get A) Meal Ticket', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', '00:07:19', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Better Off Dead', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', '00:03:01', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Writing', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', '00:05:30', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'We All Fall In Love Sometimes', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', '00:03:57', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Curtains', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', '00:08:48', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Pinball Wizard', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', '00:06:31', 'Rock');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('John, Elton', 'Saturday Night\'s Alright For Fighting', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', '00:07:40', 'Rock');
+
+-- Tonträger und Tracklisten ergänzt
+INSERT INTO tontr (aid, medium, seite) VALUES (158, 'CD', '1');
+INSERT INTO tontr (aid, medium, seite) VALUES (158, 'CD', '2');
+
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'Captain Fantastic And The Brown Dirt Cowboy', '', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'Tower Of Babel', '', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'Bitter Fingers', '', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'Tell Me When The Whistle Blows', '', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'Someone Saved My Life Tonight', '', 5, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', '(Gotta Get A) Meal Ticket', '', 6, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'Better Off Dead', '', 7, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'Writing', '', 8, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'We All Fall In Love Sometimes', '', 9, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'Curtains', '', 10, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'Lucy In The Sky With Diamonds', '', 11, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'One Day At A Time', '', 12, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'Philadelphia Freedom', '', 13, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '1', 'John, Elton', 'House Of Cards', '', 14, true);
+
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '2', 'John, Elton', 'Captain Fantastic And The Brown Dirt Cowboy', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', 1, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '2', 'John, Elton', 'Tower Of Babel', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', 2, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '2', 'John, Elton', 'Bitter Fingers', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', 3, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '2', 'John, Elton', 'Tell Me When The Whistle Blows', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', 4, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '2', 'John, Elton', 'Someone Saved My Life Tonight', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', 5, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '2', 'John, Elton', '(Gotta Get A) Meal Ticket', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', 6, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '2', 'John, Elton', 'Better Off Dead', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', 7, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '2', 'John, Elton', 'Writing', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', 8, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '2', 'John, Elton', 'We All Fall In Love Sometimes', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', 9, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '2', 'John, Elton', 'Curtains', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', 10, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '2', 'John, Elton', 'Pinball Wizard', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', 11, true);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (158, 'CD', '2', 'John, Elton', 'Saturday Night\'s Alright For Fighting', 'Live From \"Midsummer Music\" At Wembley Stadium, 21 June 1975', 12, true);
+
+-- ---
+-- 433 - Harrison, George - All Things Must Pass
+-- ---
+
+-- Genres ergänzt
+
+-- Interpret ergänzt
+UPDATE interpret SET wikipedia = 'https://en.wikipedia.org/wiki/George_Harrison_discography'
+WHERE iname = 'Harrison, George';
+
+-- Band, Solist und Mitglieder ergänzt
+
+-- Album und Albumgenres ergänzt
+UPDATE album SET pjahr = 1970, atyp = 'Studio', discogs = 'https://www.discogs.com/de/George-Harrison-All-Things-Must-Pass/release/10915749', abem = 're-issue, comes with giant fold-out poster of George Harrison'
+WHERE  aid = 433;
+
+INSERT INTO albumgenre (gbez, aid) VALUES ('Rock', 433);
+
+-- Songs, Versionen ergänzt
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'I\'d Have You Anytime');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'My Sweet Lord');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Wah-Wah');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Isn\'t It A Pity');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'What Is Life');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'If Not For You');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Behind That Locked Door');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Let It Down');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Run Of The Mill');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Beware Of Darkness');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Apple Scruffs');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Ballad Of Sir Frankie Crisp (Let It Roll)');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Awaiting On You All');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'All Things Must Pass');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'I Dig Love');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Art Of Dying');
+
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Hear Me Lord');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Out Of The Blue');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'It\'s Johnny\'s Birthday');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Plug Me In');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'I Remember Jeep');
+INSERT INTO song (iname, stitel) VALUES ('Harrison, George', 'Thanks For The Pepperoni');
+
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'I\'d Have You Anytime', '', '00:02:50', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'My Sweet Lord', '', '00:04:39', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Wah-Wah', '', '00:05:35', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Isn\'t It A Pity', 'Version One', '00:07:10', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'What Is Life', '', '00:04:18', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'If Not For You', '', '00:04:27', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Behind That Locked Door', '', '00:03:03', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Let It Down', '', '00:04:55', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Run Of The Mill', '', '00:02:52', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Beware Of Darkness', '', '00:03:47', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Apple Scruffs', '', '00:03:03', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Ballad Of Sir Frankie Crisp (Let It Roll)', '', '00:03:47', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Awaiting On You All', '', '00:02:44', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'All Things Must Pass', '', '00:03:46', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'I Dig Love', '', '00:04:54', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Art Of Dying', '', '00:03:35', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Isn\'t It A Pity', 'Version Two', '00:04:46', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Hear Me Lord', '', '00:05:46', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Out Of The Blue', '', '00:11:07', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'It\'s Johnny\'s Birthday', '', '00:00:49', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Plug Me In', '', '00:03:15', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'I Remember Jeep', '', '00:06:59', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Harrison, George', 'Thanks For The Pepperoni', '', '00:05:29', null);
+
+-- Tonträger und Trackliste ergänzt
+INSERT INTO tontr (aid, medium, seite) VALUES (433, 'Vinyl', 'A');
+INSERT INTO tontr (aid, medium, seite) VALUES (433, 'Vinyl', 'B');
+INSERT INTO tontr (aid, medium, seite) VALUES (433, 'Vinyl', 'C');
+INSERT INTO tontr (aid, medium, seite) VALUES (433, 'Vinyl', 'D');
+INSERT INTO tontr (aid, medium, seite) VALUES (433, 'Vinyl', 'E');
+INSERT INTO tontr (aid, medium, seite) VALUES (433, 'Vinyl', 'F');
+
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'A', 'Harrison, George', 'I\'d Have You Anytime', '', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'A', 'Harrison, George', 'My Sweet Lord', '', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'A', 'Harrison, George', 'Wah-Wah', '', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'A', 'Harrison, George', 'Isn\'t It A Pity', 'Version One', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'B', 'Harrison, George', 'What Is Life', '', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'B', 'Harrison, George', 'If Not For You', '', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'B', 'Harrison, George', 'Behind That Locked Door', '', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'B', 'Harrison, George', 'Let It Down', '', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'B', 'Harrison, George', 'Run Of The Mill', '', 5, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'C', 'Harrison, George', 'Beware Of Darkness', '', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'C', 'Harrison, George', 'Apple Scruffs', '', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'C', 'Harrison, George', 'Ballad Of Sir Frankie Crisp (Let It Roll)', '', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'C', 'Harrison, George', 'Awaiting On You All', '', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'C', 'Harrison, George', 'All Things Must Pass', '', 5, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'D', 'Harrison, George', 'I Dig Love', '', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'D', 'Harrison, George', 'Art Of Dying', '', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'D', 'Harrison, George', 'Isn\'t It A Pity', 'Version Two', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'D', 'Harrison, George', 'Hear Me Lord', '', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'E', 'Harrison, George', 'Out Of The Blue', '', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'E', 'Harrison, George', 'It\'s Johnny\'s Birthday', '', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'E', 'Harrison, George', 'Plug Me In', '', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'F', 'Harrison, George', 'I Remember Jeep', '', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (433, 'Vinyl', 'F', 'Harrison, George', 'Thanks For The Pepperoni', '', 2, false);
+
+-- Playlist und Playtrackliste ergänzt
+
+
+-- ---
+-- 184 - Madonna - The Immaculate Collection
+-- ---
+
+-- Genres ergänzt
+
+-- Interpret ergänzt
+UPDATE interpret SET wikipedia = 'https://en.wikipedia.org/wiki/Madonna_albums_discography'
+WHERE iname = 'Madonna';
+
+-- Band, Solist und Mitglieder ergänzt
+
+-- Album und Albumgenres ergänzt
+UPDATE album SET pjahr = 1990, atyp = 'Compilation', discogs = 'https://www.discogs.com/de/Madonna-The-Immaculate-Collection/release/6363459'
+WHERE  aid = 184;
+
+INSERT INTO albumgenre (gbez, aid) VALUES ('Electronic', 184);
+INSERT INTO albumgenre (gbez, aid) VALUES ('Rock', 184);
+
+-- Songs, Versionen ergänzt
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Holiday');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Lucky Star');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Borderline');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Like A Virgin');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Material Girl');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Crazy For You');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Into The Groove');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Live To Tell');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Papa Don\'t Preach');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Open Your Heart');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'La Isla Bonita');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Like A Prayer');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Express Yourself');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Cherish');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Vogue');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Justify My Love');
+INSERT INTO song (iname, stitel) VALUES ('Madonna', 'Rescue Me');
+
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Holiday', 'remastered 1990', '00:04:05', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Lucky Star', 'remastered 1990', '00:03:37', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Borderline', 'remastered 1990', '00:04:00', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Like A Virgin', 'remastered 1990', '00:03:11', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Material Girl', 'remastered 1990', '00:03:53', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Crazy For You', 'remastered 1990', '00:03:45', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Into The Groove', 'remastered 1990', '00:04:09', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Live To Tell', 'remastered 1990', '00:05:18', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Papa Don\'t Preach', 'remastered 1990', '00:04:09', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Open Your Heart', 'remastered 1990', '00:03:51', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'La Isla Bonita', 'remastered 1990', '00:03:47', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Like A Prayer', 'remastered 1990', '00:05:51', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Express Yourself', 'remastered 1990', '00:04:04', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Cherish', 'remastered 1990', '00:03:52', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Vogue', 'remastered 1990', '00:05:18', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Justify My Love', 'remastered 1990', '00:05:00', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Madonna', 'Rescue Me', 'remastered 1990', '00:05:32', null);
+
+-- Tonträger und Trackliste ergänzt
+INSERT INTO tontr (aid, medium, seite) VALUES (184, 'CD', '1');
+
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Holiday', 'remastered 1990', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Lucky Star', 'remastered 1990', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Borderline', 'remastered 1990', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Like A Virgin', 'remastered 1990', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Material Girl', 'remastered 1990', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Crazy For You', 'remastered 1990', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Into The Groove', 'remastered 1990', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Live To Tell', 'remastered 1990', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Papa Don\'t Preach', 'remastered 1990', 5, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Open Your Heart', 'remastered 1990', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'La Isla Bonita', 'remastered 1990', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Like A Prayer', 'remastered 1990', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Express Yourself', 'remastered 1990', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Cherish', 'remastered 1990', 5, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Vogue', 'remastered 1990', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Justify My Love', 'remastered 1990', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (184, 'CD', '1', 'Madonna', 'Rescue Me', 'remastered 1990', 3, false);
+
+-- Playlist und Playtrackliste ergänzt
+
+
+-- ---
+-- 132 - Various Artists - Saturday Night Fever (The Original Movie Sound Track)
+-- ---
+
+-- Genres ergänzt
+
+-- Interpret ergänzt
+
+-- Band, Solist und Mitglieder ergänzt
+INSERT INTO interpret (iname, inameanz) VALUES ('Elliman, Yvonne', 'Yvonne Elliman');
+INSERT INTO interpret (iname, inameanz) VALUES ('Murphy, Walter', 'Walter Murphy');
+INSERT INTO interpret (iname, inameanz) VALUES ('Tavares', 'Tavares');
+INSERT INTO interpret (iname, inameanz) VALUES ('Shire, David', 'David Shire');
+INSERT INTO interpret (iname, inameanz) VALUES ('McDonald, Ralph', 'Ralph McDonald');
+INSERT INTO interpret (iname, inameanz) VALUES ('Kool & The Gang', 'Kool & The Gang');
+INSERT INTO interpret (iname, inameanz) VALUES ('MFSB', 'MFSB');
+INSERT INTO interpret (iname, inameanz) VALUES ('Tramps, The', 'The Tramps');
+
+-- Album und Albumgenres ergänzt
+UPDATE album SET pjahr = 1977, atyp = 'Soundtrack', discogs = 'https://www.discogs.com/de/Various-Saturday-Night-Fever-The-Original-Movie-Sound-Track/release/8496292', abem = 'Double CD in big double jewelcase'
+WHERE  aid = 132;
+
+INSERT INTO albumgenre (gbez, aid) VALUES ('Funk / Soul', 132);
+INSERT INTO albumgenre (gbez, aid) VALUES ('Pop', 132);
+
+-- Songs, Versionen ergänzt
+INSERT INTO song (iname, stitel) VALUES ('Bee Gees', 'Stayin\' Alive');
+INSERT INTO song (iname, stitel) VALUES ('Bee Gees', 'How Deep Is Your Love');
+INSERT INTO song (iname, stitel) VALUES ('Bee Gees', 'Night Fever');
+INSERT INTO song (iname, stitel) VALUES ('Bee Gees', 'More Than A Woman');
+INSERT INTO song (iname, stitel) VALUES ('Elliman, Yvonne', 'If I Can\'t Have You');
+INSERT INTO song (iname, stitel) VALUES ('Murphy, Walter', 'A Fifth Of Beethoven');
+INSERT INTO song (iname, stitel) VALUES ('Tavares', 'More Than A Woman');
+INSERT INTO song (iname, stitel) VALUES ('Shire, David', 'Manhattan Skyline');
+INSERT INTO song (iname, stitel) VALUES ('McDonald, Ralph', 'Calypso Breakdown');
+INSERT INTO song (iname, stitel) VALUES ('Shire, David', 'Night On Disco Mountain');
+INSERT INTO song (iname, stitel) VALUES ('Kool & The Gang', 'Open Sesame');
+INSERT INTO song (iname, stitel) VALUES ('Bee Gees', 'Jive Talkin\'');
+INSERT INTO song (iname, stitel) VALUES ('Bee Gees', 'You Should Be Dancing');
+INSERT INTO song (iname, stitel) VALUES ('KC & The Sunshine Band', 'Boogie Shoes');
+INSERT INTO song (iname, stitel) VALUES ('Shire, David', 'Salsation');
+INSERT INTO song (iname, stitel) VALUES ('MFSB', 'K-Jee');
+INSERT INTO song (iname, stitel) VALUES ('Tramps, The', 'Disco Inferno');
+
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Bee Gees', 'Stayin\' Alive', '', '00:04:42', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Bee Gees', 'How Deep Is Your Love', '', '00:04:02', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Bee Gees', 'Night Fever', '', '00:03:31', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Bee Gees', 'More Than A Woman', '', '00:03:15', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Elliman, Yvonne', 'If I Can\'t Have You', '', '00:02:57', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Murphy, Walter', 'A Fifth Of Beethoven', '', '00:03:02', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Tavares', 'More Than A Woman', '', '00:03:15', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Shire, David', 'Manhattan Skyline', '', '00:04:43', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('McDonald, Ralph', 'Calypso Breakdown', '', '00:07:49', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Shire, David', 'Night On Disco Mountain', '', '00:05:12', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Kool & The Gang', 'Open Sesame', '', '00:03:59', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Bee Gees', 'Jive Talkin\'', '', '00:03:43', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Bee Gees', 'You Should Be Dancing', '', '00:04:14', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('KC & The Sunshine Band', 'Boogie Shoes', '', '00:02:16', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Shire, David', 'Salsation', '', '00:03:51', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('MFSB', 'K-Jee', '', '00:04:13', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Tramps, The', 'Disco Inferno', '', '00:10:51', null);
+
+-- Tonträger und Trackliste ergänzt
+INSERT INTO tontr (aid, medium, seite) VALUES (132, 'CD', '1');
+INSERT INTO tontr (aid, medium, seite) VALUES (132, 'CD', '2');
+
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '1', 'Bee Gees', 'Stayin\' Alive', '', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '1', 'Bee Gees', 'How Deep Is Your Love', '', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '1', 'Bee Gees', 'Night Fever', '', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '1', 'Bee Gees', 'More Than A Woman', '', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '1', 'Elliman, Yvonne', 'If I Can\'t Have You', '', 5, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '1', 'Murphy, Walter', 'A Fifth Of Beethoven', '', 6, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '1', 'Tavares', 'More Than A Woman', '', 7, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '1', 'Shire, David', 'Manhattan Skyline', '', 8, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '1', 'McDonald, Ralph', 'Calypso Breakdown', '', 9, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '2', 'Shire, David', 'Night On Disco Mountain', '', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '2', 'Kool & The Gang', 'Open Sesame', '', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '2', 'Bee Gees', 'Jive Talkin\'', '', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '2', 'Bee Gees', 'You Should Be Dancing', '', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '2', 'KC & The Sunshine Band', 'Boogie Shoes', '', 5, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '2', 'Shire, David', 'Salsation', '', 6, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '2', 'MFSB', 'K-Jee', '', 7, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (132, 'CD', '2', 'Tramps, The', 'Disco Inferno', '', 8, false);
+
+-- Playlist und Playtrackliste ergänzt
+
+
+-- -----
+-- Los 2
+-- -----
+
+-- Genres ergänzt
+INSERT INTO genre (gbez) VALUES ('Classical');
+
+-- Interpret ergänzt
+
+-- Band, Solist und Mitglieder ergänzt
+
+-- Album und Albumgenres ergänzt
+INSERT INTO album (aid, atitel, pjahr, atyp, discogs, abem, iname) VALUES (5000, 'Piano', 2017, 'Compilation', 'https://www.discogs.com/de/Benny-Andersson-Piano/release/11045806', '21xFile, FLAC, 24 bit / 96 kHz', 'Andersson, Benny');
+
+INSERT INTO albumgenre (gbez, aid) VALUES ('Classical', 5000);
+
+-- Songs, Versionen ergänzt
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'I Let The Music Speak');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'You And I');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Aldrig');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Thank You For The Music');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Stockholm By Night');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Chess');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'The Day Before You Came');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Someone Else’s Story');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Midnattsdans');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Målarskolan');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'I Wonder (Departure)');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Embassy Lament');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Anthem');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'My Love, My Life');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Mountain Duet');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Flickornas Rum');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Efter Regnet');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Tröstevisa');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'En Skrift I Snön');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'Happy New Year');
+INSERT INTO song (iname, stitel) VALUES ('Andersson, Benny', 'I Gott Bevar');
+
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'I Let The Music Speak', 'Piano-Version', '00:03:33', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'You And I', 'Piano-Version', '00:06:43', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Aldrig', 'Piano-Version', '00:04:04', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Thank You For The Music', 'Piano-Version', '00:03:43', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Stockholm By Night', 'Piano-Version', '00:03:15', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Chess', 'Piano-Version', '00:03:57', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'The Day Before You Came', 'Piano-Version', '00:04:36', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Someone Else’s Story', 'Piano-Version', '00:03:48', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Midnattsdans', 'Piano-Version', '00:03:24', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Målarskolan', 'Piano-Version', '00:02:12', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'I Wonder (Departure)', 'Piano-Version', '00:03:43', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Embassy Lament', 'Piano-Version', '00:01:27', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Anthem', 'Piano-Version', '00:03:19', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'My Love, My Life', 'Piano-Version', '00:03:46', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Mountain Duet', 'Piano-Version', '00:04:33', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Flickornas Rum', 'Piano-Version', '00:02:13', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Efter Regnet', 'Piano-Version', '00:02:37', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Tröstevisa', 'Piano-Version', '00:03:33', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'En Skrift I Snön', 'Piano-Version', '00:05:14', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'Happy New Year', 'Piano-Version', '00:03:14', null);
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Andersson, Benny', 'I Gott Bevar', 'Piano-Version', '00:03:45', null);
+
+-- Tonträger und Trackliste ergänzt
+INSERT INTO tontr (aid, medium, seite) VALUES (5000, 'Download', '');
+
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'I Let The Music Speak', 'Piano-Version', 1, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'You And I', 'Piano-Version', 2, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Aldrig', 'Piano-Version', 3, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Thank You For The Music', 'Piano-Version', 4, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Stockholm By Night', 'Piano-Version', 5, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Chess', 'Piano-Version', 6, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'The Day Before You Came', 'Piano-Version', 7, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Someone Else’s Story', 'Piano-Version', 8, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Midnattsdans', 'Piano-Version', 9, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Målarskolan', 'Piano-Version', 10, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'I Wonder (Departure)', 'Piano-Version', 11, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Embassy Lament', 'Piano-Version', 12, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Anthem', 'Piano-Version', 13, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'My Love, My Life', 'Piano-Version', 14, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Mountain Duet', 'Piano-Version', 15, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Flickornas Rum', 'Piano-Version', 16, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Efter Regnet', 'Piano-Version', 17, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Tröstevisa', 'Piano-Version', 18, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'En Skrift I Snön', 'Piano-Version', 19, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'Happy New Year', 'Piano-Version', 20, false);
+INSERT INTO ttracklist (aid, medium, seite, iname, stitel, svers, tracknr, bonus) VALUES (5000, 'Download', '', 'Andersson, Benny', 'I Gott Bevar', 'Piano-Version', 21, false);
+
+-- Playlist und Playtrackliste ergänzt
+
+
+-- -----
+-- Los 3
+-- -----
+
+-- Genres ergänzt
+
+-- Interpret ergänzt
+INSERT INTO interpret (iname, inameanz, wikipedia) VALUES ('Faithfull, Marianne', 'Marianne Faithfull', 'https://en.wikipedia.org/wiki/Marianne_Faithfull');
+
+-- Band, Solist und Mitglieder ergänzt
+INSERT INTO solist (iname, gebdatum) VALUES ('Faithfull, Marianne',   '1946-12-29');
+
+-- Album und Albumgenres ergänzt
+
+-- Songs, Versionen ergänzt
+INSERT INTO song (iname, stitel, komponist) VALUES ('Faithfull, Marianne', 'As Tears Go By', 'Jagger, Richard, Coleham');
+INSERT INTO song (iname, stitel, komponist) VALUES ('Faithfull, Marianne', 'Come And Stay With Me', 'De Shannon');
+
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Faithfull, Marianne', 'As Tears Go By', '', '00:02:35', 'Pop');
+INSERT INTO songv (iname, stitel, svers, sdauer, gbez) VALUES ('Faithfull, Marianne', 'Come And Stay With Me', '', '00:02:25', 'Pop');
+
+-- Tonträger und Trackliste ergänzt
+
+-- Playlist und Playtrackliste ergänzt
+INSERT INTO playl (pbez, pbem) VALUES ('MARM toDo', 'muss ich mir erst anhören');
+
+INSERT INTO ptracklist (pbez, iname, stitel, svers, tracknr) VALUES ('MARM toDo', 'Faithfull, Marianne', 'As Tears Go By', '', 1);
+INSERT INTO ptracklist (pbez, iname, stitel, svers, tracknr) VALUES ('MARM toDo', 'Faithfull, Marianne', 'Come And Stay With Me', '', 2);
