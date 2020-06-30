@@ -23,3 +23,4 @@ Uses MySQL database, interaction via PDO
 /layout --> header, footer, page-content, etc.
 /forms --> login form, signup form, etc.
 /css/style.scss --> custom stylesheet (must be compiled to /css/style.css)
+/screenshots --> for more screenshots, that show all implemented features
